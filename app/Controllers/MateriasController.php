@@ -124,7 +124,7 @@ class MateriasController extends BaseController
             $rules = [
                 'nombre' => [
                     'label' => 'Nombre de la Materia',
-                    'rules' => 'required|min_length[3]|max_length[100]',
+                    'rules' => 'required|min_length[3]',
                 ],
                 'ciclo' => [
                     'label' => 'Ciclo',
@@ -226,7 +226,7 @@ class MateriasController extends BaseController
             $rules = [
                 'nombre' => [
                     'label' => 'Nombre de la Materia',
-                    'rules' => 'required|min_length[3]|max_length[100]',
+                    'rules' => 'required|min_length[3]',
                 ],
                 'ciclo' => [
                     'label' => 'Ciclo',
@@ -910,7 +910,7 @@ class MateriasController extends BaseController
                 ],
                 'nombre' => [
                     'label' => 'Nombre de la Unidad',
-                    'rules' => 'required|min_length[3]|max_length[100]',
+                    'rules' => 'required|min_length[3]',
                 ],
                 'objetivo' => [
                     'label' => 'Objetivo de la Unidad',
@@ -1004,7 +1004,7 @@ class MateriasController extends BaseController
                 ],
                 'nombre' => [
                     'label' => 'Nombre de la Unidad',
-                    'rules' => 'required|min_length[3]|max_length[100]'
+                    'rules' => 'required|min_length[3]'
                 ],
                 'objetivo' => [
                     'label' => 'Objetivo de la Unidad',
@@ -1212,7 +1212,7 @@ class MateriasController extends BaseController
                 ],
                 'nombre' => [
                     'label' => 'Nombre del Tema',
-                    'rules' => 'required|min_length[3]|max_length[100]',
+                    'rules' => 'required|min_length[3]',
                 ],
             ];
 
@@ -1341,7 +1341,7 @@ class MateriasController extends BaseController
                 ],
                 'nombre' => [
                     'label' => 'Nombre del Tema',
-                    'rules' => 'required|min_length[3]|max_length[100]'
+                    'rules' => 'required|min_length[3]'
                 ],
             ];
 
