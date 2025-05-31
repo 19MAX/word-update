@@ -901,12 +901,24 @@ class MateriasController extends BaseController
         ];
 
         try {
+            $existe = $this->unidadModel
+                ->where('materia_id', $materia_id)
+                ->where('numero_unidad', $numero_unidad)
+                ->first();
+
+            if ($existe) {
+                return $this->response->setStatusCode(422)->setJSON([
+                    'success' => false,
+                    'message' => 'Ya existe una unidad con ese número para esta materia.'
+                ]);
+            }
+
             $validation = \Config\Services::validation();
 
             $rules = [
                 'numero_unidad' => [
                     'label' => 'Número de Unidad',
-                    'rules' => 'required|numeric|is_unique[unidades.numero_unidad,materia_id,' . $materia_id . ']',
+                    'rules' => 'required|numeric',
                 ],
                 'nombre' => [
                     'label' => 'Nombre de la Unidad',
@@ -995,12 +1007,25 @@ class MateriasController extends BaseController
                 ]);
             }
 
+            $existe = $this->unidadModel
+                ->where('materia_id', $materia_id)
+                ->where('numero_unidad', $numero_unidad)
+                ->where('unidad_id !=', $unidad_id) // Ignorar la unidad actual
+                ->first();
+
+            if ($existe) {
+                return $this->response->setStatusCode(422)->setJSON([
+                    'success' => false,
+                    'message' => 'Ya existe otra unidad con ese número para esta materia.'
+                ]);
+            }
+
             $validation = \Config\Services::validation();
 
             $rules = [
                 'numero_unidad' => [
                     'label' => 'Número de Unidad',
-                    'rules' => "required|numeric|is_unique[unidades.numero_unidad,materia_id,$materia_id,unidad_id,$unidad_id]",
+                    'rules' => "required|numeric",
                 ],
                 'nombre' => [
                     'label' => 'Nombre de la Unidad',
